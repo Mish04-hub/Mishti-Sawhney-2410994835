@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase - Shopping Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>ShopEase</h1>
+    <p>Simple shopping, easy checkout.</p>
+    <button id="openCart">🛒 Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <main>
+    <section class="controls">
+      <input id="search" type="search" placeholder="Search products...">
+      <select id="category">
+        <option value="All">All categories</option>
+        <option value="Clothing" selected>Clothing</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Home">Home</option>
+      </select>
+      <select id="priceFilter">
+        <option value="all">Any price</option>
+        <option value="500">Under ₹500</option>
+        <option value="1000">Under ₹1,000</option>
+        <option value="2000">Under ₹2,000</option>
+      </select>
+      <select id="sort">
+        <option value="featured">Sort: Featured</option>
+        <option value="low">Price: Low to high</option>
+        <option value="high" selected>Price: High to low</option>
+        <option value="name">Name: A to Z</option>
+      </select>
+    </section>
+
+    <h2>Our Products</h2>
+    <section id="products" class="products"></section>
+    <p id="noProducts" class="hidden">No products found.</p>
+  </main>
+
+  <section id="cartPanel" class="cart-panel hidden">
+    <div class="cart-heading">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="close">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div id="cartSummary">
+      <div class="coupon">
+        <input id="coupon" placeholder="Coupon code">
+        <button id="applyCoupon">Apply</button>
+      </div>
+      <p id="couponMessage">Try SAVE10, SAVE20 or FLAT100.</p>
+      <p>Subtotal: <strong id="subtotal">₹0</strong></p>
+      <p>Discount: <strong id="discount">₹0</strong></p>
+      <p>Shipping: <strong id="shipping">₹0</strong></p>
+      <h3>Total: <span id="total">₹0</span></h3>
+      <button id="checkout" class="primary full">Checkout</button>
+    </div>
+    <p id="emptyCart">Your cart is empty. Add a product to get started!</p>
+  </section>
+
+  <section id="checkoutPanel" class="checkout-panel hidden">
+    <button id="closeCheckout" class="close">✕</button>
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label>Full name<input name="name" required placeholder="Enter your name"></label>
+      <label>Email<input name="email" type="email" required placeholder="Enter your email"></label>
+      <label>Delivery address<textarea name="address" required placeholder="Enter your address"></textarea></label>
+      <label>Payment method
+        <select name="payment" required>
+          <option value="">Choose payment method</option>
+          <option>Cash on Delivery</option>
+          <option>UPI (demo)</option>
+          <option>Card (demo)</option>
+        </select>
+      </label>
+      <p class="checkout-total">Order total: <strong id="checkoutTotal">₹0</strong></p>
+      <button class="primary full" type="submit">Place Demo Order</button>
+      <small>This is a demo project. No real payment is collected.</small>
+    </form>
+  </section>
+
+  <footer>ShopEase · CE-1 Mini Project</footer>
+</body>
+</html>
